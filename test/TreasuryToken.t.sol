@@ -24,7 +24,8 @@ contract TreasuryTokenTest is Test {
         vm.startPrank(admin);
         registry.grantRole(registry.KYC_ROLE(), kycOfficer);
         registry.grantRole(registry.FREEZER_ROLE(), freezer);
-        token.grantRole(token.ISSUER_ROLE(), issuer);
+        token.grantRole(token.MINTER_ROLE(), issuer);
+        token.grantRole(token.BURNER_ROLE(), issuer);
         vm.stopPrank();
 
         vm.startPrank(kycOfficer);
